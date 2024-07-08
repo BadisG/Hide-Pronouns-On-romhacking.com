@@ -8,4 +8,4 @@ Hide the pronouns of the users from romhacking.com
 
 
 ## 2) Install the script there
-[Click on this link](https://github.com/BadisG/Hide-Pronouns-On-romhacking.com/raw/main/main.js)
+[Click on this link](https://github.com/BadisG/Hide-Pronouns-On-romhacking.com/raw/main/main.user.js)
