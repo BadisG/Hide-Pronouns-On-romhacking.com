@@ -162,7 +162,6 @@
                 const pronouns = username.shadowRoot.querySelector('.pronouns');
                 if (pronouns) {
                     hideElement(pronouns);
-                    console.log('User Search Page - Hidden pronouns for:', username);
                 }
             }
         }
