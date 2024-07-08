@@ -56,11 +56,22 @@
     }
 
     function hidePronounsOnDetailPage(root) {
-        const elements = root.querySelectorAll('.pronouns');
-        elements.forEach(element => {
-            hideElement(element);
-            console.log('Detail Page - Hidden pronouns for:', element);
-        });
+        const hackInfo = root.querySelector('rhdc-hack-info');
+        if (hackInfo && hackInfo.shadowRoot) {
+            const authors = hackInfo.shadowRoot.querySelector('.authors');
+            if (authors) {
+                const usernames = authors.querySelectorAll('rhdc-username');
+                usernames.forEach(username => {
+                    if (username && username.shadowRoot) {
+                        const pronouns = username.shadowRoot.querySelector('.pronouns');
+                        if (pronouns) {
+                            hideElement(pronouns);
+                            console.log('Detail Page - Hidden pronouns for:', username);
+                        }
+                    }
+                });
+            }
+        }
     }
 
     function hidePronounsOnComments(root) {
@@ -127,7 +138,7 @@
 
     function hidePronouns() {
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-hacks-list-page', 'rhdc-hack-card+'], hidePronounsOnListPage);
-        getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-hack-page', 'rhdc-hack-info', 'rhdc-username'], hidePronounsOnDetailPage);
+        getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-hack-page'], hidePronounsOnDetailPage);
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-hack-page', 'rhdc-hack-comments'], hidePronounsOnComments);
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-home-page', 'rhdc-news'], hidePronounsOnMainPage);
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-competitions-homepage'], hidePronounsOnCompetitions);
