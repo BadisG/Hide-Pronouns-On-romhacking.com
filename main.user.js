@@ -50,6 +50,7 @@
             if (username && username.shadowRoot) {
                 const pronouns = username.shadowRoot.querySelectorAll('.pronouns');
                 pronouns.forEach(hideElement);
+                console.log('List Page - Hidden pronouns for:', username);
             }
         });
     }
@@ -65,6 +66,7 @@
                         const pronouns = username.shadowRoot.querySelector('.pronouns');
                         if (pronouns) {
                             hideElement(pronouns);
+                            console.log('Detail Page - Hidden pronouns for:', username);
                         }
                     }
                 });
@@ -96,6 +98,7 @@
                 const pronouns = username.shadowRoot.querySelector('.pronouns');
                 if (pronouns) {
                     hideElement(pronouns);
+                    console.log('Main Page - Hidden pronouns for:', username);
                 }
             }
         }
@@ -112,6 +115,7 @@
                     const pronouns = username.shadowRoot.querySelector('.pronouns');
                     if (pronouns) {
                         hideElement(pronouns);
+                        console.log('Competitions Page - Hidden pronouns for:', username);
                     }
                 }
             });
@@ -126,6 +130,40 @@
             const pronouns = username.shadowRoot.querySelector('.pronouns');
             if (pronouns) {
                 hideElement(pronouns);
+                console.log('Leaderboard Page - Hidden pronouns for:', username);
+            }
+        }
+    });
+}
+
+    function hidePronounsOnSearchPage(root) {
+    const hackCards = root.querySelectorAll('rhdc-hack-card');
+    hackCards.forEach(card => {
+        if (card && card.shadowRoot) {
+            const usernames = card.shadowRoot.querySelectorAll('rhdc-username');
+            usernames.forEach(username => {
+                if (username && username.shadowRoot) {
+                    const pronouns = username.shadowRoot.querySelector('.pronouns');
+                    if (pronouns) {
+                        hideElement(pronouns);
+                    }
+                }
+            });
+        }
+    });
+}
+
+    function hidePronounsOnSearchUsers(root) {
+    const userSearchCards = root.querySelectorAll('rhdc-user-search-card');
+    userSearchCards.forEach(card => {
+        if (card && card.shadowRoot) {
+            const username = card.shadowRoot.querySelector('rhdc-username');
+            if (username && username.shadowRoot) {
+                const pronouns = username.shadowRoot.querySelector('.pronouns');
+                if (pronouns) {
+                    hideElement(pronouns);
+                    console.log('User Search Page - Hidden pronouns for:', username);
+                }
             }
         }
     });
@@ -137,8 +175,9 @@
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-hack-page', 'rhdc-hack-comments'], hidePronounsOnComments);
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-home-page', 'rhdc-news'], hidePronounsOnMainPage);
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-competitions-homepage'], hidePronounsOnCompetitions);
-        // Ajoutez cette ligne pour le classement
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-leaderboard-page', 'rhdc-leaderboard'], hidePronounsOnLeaderboard);
+        getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-search-page', 'rhdc-hack-search'], hidePronounsOnSearchPage);
+        getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-search-page', 'rhdc-user-search'], hidePronounsOnSearchUsers);
     }
 
     unsafeWindow.setInterval(hidePronouns, 100);
