@@ -168,6 +168,39 @@
     });
 }
 
+    function hidePronounsOnUserPage(root) {
+    const userHeader = root.querySelector('rhdc-user-header');
+    if (userHeader && userHeader.shadowRoot) {
+        const username = userHeader.shadowRoot.querySelector('rhdc-username');
+        if (username && username.shadowRoot) {
+            const pronouns = username.shadowRoot.querySelector('.pronouns');
+            if (pronouns) {
+                hideElement(pronouns);
+                console.log('User Page Header - Hidden pronouns');
+            }
+        }
+    }
+
+    const userHacks = root.querySelector('rhdc-user-hacks');
+    if (userHacks && userHacks.shadowRoot) {
+        const hackCards = userHacks.shadowRoot.querySelectorAll('rhdc-hack-card');
+        hackCards.forEach(card => {
+            if (card && card.shadowRoot) {
+                const usernames = card.shadowRoot.querySelectorAll('rhdc-username');
+                usernames.forEach(username => {
+                    if (username && username.shadowRoot) {
+                        const pronouns = username.shadowRoot.querySelector('.pronouns');
+                        if (pronouns) {
+                            hideElement(pronouns);
+                            console.log('User Page Hack Card - Hidden pronouns');
+                        }
+                    }
+                });
+            }
+        });
+    }
+}
+
     function hidePronouns() {
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-hacks-list-page', 'rhdc-hack-card+'], hidePronounsOnListPage);
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-hack-page'], hidePronounsOnDetailPage);
@@ -177,6 +210,7 @@
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-leaderboard-page', 'rhdc-leaderboard'], hidePronounsOnLeaderboard);
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-search-page', 'rhdc-hack-search'], hidePronounsOnSearchPage);
         getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-search-page', 'rhdc-user-search'], hidePronounsOnSearchUsers);
+        getDeepShadowRoot(['rhdc-page', 'rhdc-router', 'rhdc-user-page'], hidePronounsOnUserPage);
     }
 
     unsafeWindow.setInterval(hidePronouns, 100);
