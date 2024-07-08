@@ -1,5 +1,7 @@
 # Hide-Pronouns-On-romhacking.com
 Hide the pronouns of the users from romhacking.com
+![dzdz](https://github.com/BadisG/Hide-Pronouns-On-romhacking.com/assets/110173477/0a03e534-c727-48ec-bd10-13133943bb5e)
+
 
 # How to install (Method 1)
 ## 1) Install a user script manager:
