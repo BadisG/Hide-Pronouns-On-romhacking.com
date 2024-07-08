@@ -50,7 +50,6 @@
             if (username && username.shadowRoot) {
                 const pronouns = username.shadowRoot.querySelectorAll('.pronouns');
                 pronouns.forEach(hideElement);
-                console.log('List Page - Hidden pronouns for:', username);
             }
         });
     }
@@ -66,7 +65,6 @@
                         const pronouns = username.shadowRoot.querySelector('.pronouns');
                         if (pronouns) {
                             hideElement(pronouns);
-                            console.log('Detail Page - Hidden pronouns for:', username);
                         }
                     }
                 });
@@ -98,7 +96,6 @@
                 const pronouns = username.shadowRoot.querySelector('.pronouns');
                 if (pronouns) {
                     hideElement(pronouns);
-                    console.log('Main Page - Hidden pronouns for:', username);
                 }
             }
         }
@@ -115,7 +112,6 @@
                     const pronouns = username.shadowRoot.querySelector('.pronouns');
                     if (pronouns) {
                         hideElement(pronouns);
-                        console.log('Competitions Page - Hidden pronouns for:', username);
                     }
                 }
             });
@@ -130,7 +126,6 @@
             const pronouns = username.shadowRoot.querySelector('.pronouns');
             if (pronouns) {
                 hideElement(pronouns);
-                console.log('Leaderboard Page - Hidden pronouns for:', username);
             }
         }
     });
@@ -176,7 +171,6 @@
             const pronouns = username.shadowRoot.querySelector('.pronouns');
             if (pronouns) {
                 hideElement(pronouns);
-                console.log('User Page Header - Hidden pronouns');
             }
         }
     }
@@ -192,7 +186,6 @@
                         const pronouns = username.shadowRoot.querySelector('.pronouns');
                         if (pronouns) {
                             hideElement(pronouns);
-                            console.log('User Page Hack Card - Hidden pronouns');
                         }
                     }
                 });
