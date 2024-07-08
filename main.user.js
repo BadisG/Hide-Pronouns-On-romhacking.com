@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         New Userscript
+// @name         Hide Pronouns on romhacking.com
 // @namespace    http://tampermonkey.net/
 // @version      2024-07-06
 // @description  Hide the pronouns of the users from romhacking.com
